@@ -1,3 +1,5 @@
+import style from "./Button.module.css";
+
 interface Properties {
   color?: "primary" | "secondary" | "danger" | "success";
   children: string;
@@ -11,7 +13,7 @@ function Button({ children, onClick, color = "primary" }: Properties) {
   return (
     <button
       type="button"
-      className={"btn btn-" + color}
+      className={[style.btn, style["btn-" + color]].join(" ")}
       onClick={() => {
         handleOnClick();
         onClick();
